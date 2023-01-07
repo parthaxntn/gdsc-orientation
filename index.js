@@ -33,6 +33,6 @@ app.get('/read',(req,res)=>{
     res.json(datafile)
 })
 
-app.listen(5000, () => {
+app.listen(process.env.PORT, () => {
     console.log('Example app listening on port 3000!')
 })
