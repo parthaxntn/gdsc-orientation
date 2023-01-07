@@ -33,6 +33,12 @@ app.get('/read',(req,res)=>{
     res.json(datafile)
 })
 
+app.get('/clear',(req,res)=>{
+    datafile.data = []
+    fs.writeFileSync('./public/data.json', JSON.stringify(datafile))
+    res.json(datafile)
+})
+
 app.listen(process.env.PORT, () => {
     console.log('Example app listening on port 3000!')
 })
