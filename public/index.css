@@ -19,6 +19,26 @@ body{
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
     height: fit-content;
     max-width: 500px;
+    position: relative;
+}
+
+.name{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 19%;
+    font-size: xx-large;
+    text-align: center;
+    width: 70%;
+}
+
+.dflex{
+    display: flex;
+}
+
+.enclosure img{
+    margin: auto;
+    width: 80%;
 }
 
 .title{

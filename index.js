@@ -11,17 +11,26 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false })
 app.set('view engine', 'pug')
 app.use(express.static('public'))
 
-app.get('/gdsc/bla-bla', (req, res) => {
+const code = 'acgff'
+
+//config
+if(process.env.NODE_ENV!=="PRODUCTION"){
+    require("dotenv").config({ path: "./.env" });
+}
+
+app.get(`/gdsc/${code}`, (req, res) => {
   res.render(path.join(__dirname+'/pages/index'))
 })
 
 app.post('/wlcm', urlencodedParser, (req, res) => {
     const { name } = req.body
-    if (!name) {
+    const { sc_id } = req.body
+    if (!name || !sc_id) {
         res.render(path.join(__dirname+'/pages/index'), { noname: true })
     }
     const data = {
         name: name,
+        sc_id: sc_id,
         time: new Date().toLocaleString()
     }
     datafile.data.push(data)
@@ -40,5 +49,5 @@ app.get('/clear',(req,res)=>{
 })
 
 app.listen(process.env.PORT, () => {
-    console.log('Example app listening on port 3000!')
+    console.log(`Example app listening on port ${process.env.PORT}!`)
 })
