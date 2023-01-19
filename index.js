@@ -11,7 +11,7 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false })
 app.set('view engine', 'pug')
 app.use(express.static('public'))
 
-const code = 'acgff'
+const code = 'acffg'
 
 //config
 if(process.env.NODE_ENV!=="PRODUCTION"){
