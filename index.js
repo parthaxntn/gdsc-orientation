@@ -11,7 +11,7 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false })
 app.set('view engine', 'pug')
 app.use(express.static('public'))
 
-const code = 'acffg'
+const code = 'cdfgo'
 
 //config
 if(process.env.NODE_ENV!=="PRODUCTION"){
@@ -20,6 +20,10 @@ if(process.env.NODE_ENV!=="PRODUCTION"){
 
 app.get(`/gdsc/${code}`, (req, res) => {
   res.render(path.join(__dirname+'/pages/index'))
+})
+
+app.get(`/gdsc/ques`, (req, res) => {
+  res.render(path.join(__dirname+'/pages/question'))
 })
 
 app.post('/wlcm', urlencodedParser, (req, res) => {
