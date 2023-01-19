@@ -48,6 +48,10 @@ app.get('/clear',(req,res)=>{
     res.json(datafile)
 })
 
+app.get('/*',(req,res)=>{
+    res.render(path.join(__dirname+'/pages/404'))
+})
+
 app.listen(process.env.PORT, () => {
     console.log(`Example app listening on port ${process.env.PORT}!`)
 })
